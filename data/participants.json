@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Alex Mercer",
+    "email": "alex.mercer@exploitx.org",
+    "eventRole": "Participant",
+    "certificateId": "VOID-2.0-04821",
+    "teamName": "VoidRunners"
+  },
+  {
+    "name": "Sarah Connor",
+    "email": "sarah.connor@cyberdyne.com",
+    "eventRole": "Winner",
+    "certificateId": "VOID-2.0-00001",
+    "teamName": "Resistance"
+  },
+  {
+    "name": "John Doe",
+    "email": "john.doe@gmail.com",
+    "eventRole": "Runner-Up",
+    "certificateId": "VOID-2.0-00042",
+    "teamName": "Hackers Assemble"
+  },
+  {
+    "name": "Jane Smith",
+    "email": "jane.smith@university.edu",
+    "eventRole": "Organizer",
+    "certificateId": "VOID-2.0-00999",
+    "teamName": "ExploitX Core"
+  }
+]
