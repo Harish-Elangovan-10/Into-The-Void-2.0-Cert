@@ -47,12 +47,28 @@ export async function POST(req: Request) {
       );
     }
 
+    if (!GOOGLE_SHEET_ID) {
+      console.error("GOOGLE_SHEET_ID environment variable is not defined.");
+      return NextResponse.json(
+        { error: "Server Configuration Error: Google Sheet ID is not configured." },
+        { status: 500 }
+      );
+    }
+
+    const sheetCsvUrl = `https://docs.google.com/spreadsheets/d/${GOOGLE_SHEET_ID}/export?format=csv`;
+
     // Fetch live data from Google Sheet CSV (no-store ensures real-time updates)
-    const response = await fetch(SHEET_CSV_URL, {
+    const response = await fetch(sheetCsvUrl, {
       cache: "no-store",
     });
 
     if (!response.ok) {
+      if (response.status === 401 || response.status === 403) {
+        return NextResponse.json(
+          { error: "Access Denied: Please ensure your Into the Void Google Sheet sharing setting is set to 'Anyone with the link can view'." },
+          { status: 401 }
+        );
+      }
       throw new Error(`Failed to fetch Google Sheet data (${response.status})`);
     }
 
